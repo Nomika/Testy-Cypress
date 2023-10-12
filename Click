@@ -1,0 +1,17 @@
+/// <reference types="cypress" />
+
+describe("E2E- Klikniecie", () => {
+    it("Klikniecie", () => {
+        cy.visit("/");
+        //cy.contains('[".wt-overlay__footer__action"]', 'Akceptuj').click();
+        cy.get("button").parents(".wt-overlay__footer__action").find("button").contains("Akceptuj").click();
+    })
+    it("Klikniecie2", () => {
+        cy.visit("/");
+        cy.get("button").parents(".wt-overlay__footer__action").find("button").contains("Akceptuj").click();
+
+
+        cy.get("a").parents(".shopping-window").find("a").eq(0).click();
+        
+    })
+})
