@@ -1,0 +1,14 @@
+/// <reference types="cypress" />
+
+describe("E2E ", () => {
+   
+it("Lokalizatory 2", () => {
+    cy.visit("/");
+
+  
+    cy.get("button").parents(".wt-overlay__footer__action").find("button").contains("Akceptuj").click();
+
+    cy.get("#global-enhancements-search-query").type("Monika{backspace}", {delay: 1000}).clear();
+   
+})
+})
