@@ -1,0 +1,38 @@
+/// <reference types="cypress" />
+
+describe("Invoke ", () => {
+   
+    it("Invoke", () => {
+        cy.visit("/");
+    
+        cy.get("button").parents(".wt-overlay__footer__action").find("button").contains("Akceptuj").click();
+     
+    //Pobieranie wartości z danego elementu
+        cy.get('[class="wt-text-title-large"]').invoke("text").then(tekst => {
+            cy.log(tekst);
+        })
+
+    //Uzyskanie dostępu do wartości atrybutu
+    cy.get('[class="wt-text-title-large"]').invoke("attr", "id").then(
+        id => {
+            cy.log(id);
+        }
+    )
+   
+    cy.get('[class="wt-text-title-large"]').invoke("attr", "class").then(
+        text => {
+            cy.log(text);
+        }
+    )
+    //Pobieranie wartości
+    cy.get("#global-enhancements-search-query").type("Przykład W").invoke("prop", "value").then(wartosc => {
+        cy.log(wartosc)
+    })
+
+
+    cy.get("#global-enhancements-search-query").type("Przykład W").invoke("prop", "multiple").then(wartosc => {
+        cy.log(wartosc)
+    })
+           
+    })
+    })
