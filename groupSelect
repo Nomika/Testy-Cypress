@@ -1,0 +1,20 @@
+/// <reference types="cypress" />
+
+describe("SELECT ", () => {
+
+
+
+it("Wszystkie opcje po po kolei", () => {
+    cy.visit("/");
+
+    cy.get('[type="button"]').contains("Akceptuję").click();
+
+    cy.get('[href="/torebki-damskie"]').contains("TOREBKI").click();
+
+        cy.get("#sort-header").then(znajdz => {
+            cy.wrap(znajdz).find("option").each(opcja => {
+                cy.wrap(znajdz).select(opcja.text())
+            })
+        })  
+    })
+})
