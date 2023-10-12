@@ -1,0 +1,35 @@
+/// <reference types="cypress" />
+
+describe("Checkbox", () => {
+   
+    it("Checkbox", () => {
+        cy.visit("/");
+   
+        cy.get('[type="button"]').contains("Akceptuję").click();
+
+        cy.get('[href="/torebki-damskie"]').contains("TOREBKI").click();
+
+        // cy.get("#collapse-sizes2").find("input")
+        // .then(checkbox => {
+        //     cy.get(checkbox).eq(0).check().invoke("prop", "contentEditable"
+        //     )
+        // .then(zaznaczony => {
+        //     cy.log(zaznaczony)
+        //     });
+        //    // cy.get(checkbox).eq(2);
+        // });
+
+        // cy.get('#collapse-colors').find("input")
+        // .then(checkbox => {
+        //     cy.get(checkbox).eq(0).check()
+        // })
+        
+        // cy.get('#collapse-colors').find("input")
+        // .then(checkbox => {
+        //     cy.get(checkbox).eq(3).check()
+        // })
+
+        cy.get('#collapse-colors').find("input").check()
+        
+    })
+})
