@@ -1,0 +1,41 @@
+/// <reference types="cypress" />
+
+describe("E2E ", () => {
+    it("Lokalizatory 1- automationpractice", () => {
+        cy.visit("/");
+
+        //pobrać element po znaczniku
+        cy.get("a");
+
+        //Identyfikator-  ID
+        cy.get("#global-enhancements-search-query");
+
+        //klasy
+        cy.get(".wt-input-btn-group__input");
+
+        //Atrybuty
+        cy.get('[name="search_query"]');
+        cy.get('[placeholder="Wyszukaj coś"]');
+
+        //Dokładniejszy atrybut wraz ze znacznikiem
+        cy.get('input[placeholder="Wyszukaj coś"]');
+
+        //Pobieranie elementów po kilku atrybutach
+        //cy.get
+
+        //cy.get('[src="//theme.zdassets.com/theme_assets/2016348/4be3c8167a9929a2e8bd344aab1a3a56dc62a80b.svg"][alt="Etsy"]');
+
+        //Zalecana praktyka pobierania elementów
+        cy.get('[data-id="search-query"][type="text"]');
+        cy.get('[name="search_query"][type="text"]');
+       // cy.get('[data-cy="wyszukiwarka"]')
+    })
+
+    it("Lokalizatory 2", () => {
+        cy.visit("/");
+        cy.contains('Zaloguj się');
+        //cy.contains('[href="https://www.etsy.com/pl/search/shops?ref=homepage-local-shops&utm_campaign=homepage-local-shops"]', 'Przejdź do Centrum pomocy')
+    })
+
+})
+
