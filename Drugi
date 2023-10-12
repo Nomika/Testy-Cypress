@@ -1,0 +1,34 @@
+/// <reference types="cypress" />
+
+describe("E2E2", () => {
+    // it("Should", () => {
+    //     cy.visit("/");
+
+    
+    //     //Dokładniejszy atrybut wraz ze znacznikiem
+    //     cy.get('input[placeholder="Wyszukaj coś"]');
+
+    //     //Pobieranie elementów po kilku atrybutach
+    //     //cy.get
+
+    //     cy.get('[data-id="search-query"][type="text"]');
+    //     cy.get('[name="search_query"][type="text"]');
+
+    //     //Zalecana praktyka pobierania elementów
+    //     //cy.get('[data_cy="wyszukiwarka"]');
+    //     cy.get('[data-cy="wyszukiwarka"]')
+
+    // });
+
+    it("Lokalizatory 3", () => {
+        cy.visit("/");
+        cy.contains('Kupuj u lokalnych twórców');
+        //cy.contains('Etsy jest globalną platformą');
+        cy.contains('[href="https://www.etsy.com/pl/search/shops?ref=homepage-local-shops&utm_campaign=homepage-local-shops"]', 'Kupuj u lokalnych twórców');
+
+        cy.get('button').parents(".wt-input-btn-group").find('button').eq(0);
+        cy.get('button').parents(".wt-input-btn-group").find('button').first();
+        cy.get('button').parents(".wt-input-btn-group").find('button').contains('Subskrybuj');
+    })
+
+})
