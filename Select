@@ -1,0 +1,24 @@
+/// <reference types="cypress" />
+
+describe("SELECT ", () => {
+   
+    it("SELECT", () => {
+        cy.visit("/");
+
+        cy.get('[type="button"]').contains("Akceptuję").click();
+
+        cy.get('[href="/torebki-damskie"]').contains("TOREBKI").click();
+
+        //Po nazwie wyszukaj- selsct po nazwie
+        cy.get("#sort-header").select('Cena rosnąco')  
+      
+       //Po value- po wartości select
+        cy.get("#sort-header").select("Products.price_asc")
+
+        //Po indeksie- select
+        cy.get("#sort-header").select(2)
+
+        
+
+    })
+    })
