@@ -1,0 +1,13 @@
+/// <reference types="cypress" />
+
+describe("Wgrywanie pliku", () => {
+   
+    it("Wgrywanie Pliku", () => {
+        cy.visit("https://www.szybkiplik.pl/");
+   
+        cy.get('#fileupload').attachFile('../fixtures/praca1.jpg')
+        cy.get('span.js-susDataHeadline').should('contain', "praca1.jpg")
+    })
+})
+
+
