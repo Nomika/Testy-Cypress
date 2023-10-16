@@ -1,0 +1,28 @@
+/// <reference types="cypress" />
+
+describe("Trigger-skrolowanie-najechanie", () => {
+   
+    // it("Najechanie na dany element", () => {
+    //     cy.visit("https://ug.edu.pl/");
+
+
+    //     cy.get('#menu-glowne-taxonomy-menumenu-linktaxonomy-menumenu-linkmenu-glowne3845').trigger("focus")
+    //     cy.get('li.sf-depth-2').contains("Strony jednostek").click();
+        
+    it("Skrolowanie do boxu", () => {
+        cy.visit("https://ug.edu.pl/");
+
+    
+        cy.get("button").parents("#popup-buttons").find('button').contains('Akceptuj').click();
+
+
+
+        cy.get('#menu-glowne-taxonomy-menumenu-linktaxonomy-menumenu-linkmenu-glowne3845').trigger("focus")
+        cy.get('li.sf-depth-2').contains("Strony jednostek").click();
+
+        cy.get("a").parents('#prezentacja_w_kategorii_terminy').find("a").contains("Księgowość").scrollIntoView();
+
+
+    })
+})
+// })
