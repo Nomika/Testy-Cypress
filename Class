@@ -1,0 +1,38 @@
+class SelectPage {
+    get select() {
+        return cy.get("#sort-header");
+    }
+    selectAllOption() {
+        this.select.then(znajdz => {
+            cy.wrap(znajdz).find("option").each(opcja => {
+                cy.wrap(znajdz).select(opcja.text())
+            })
+    })
+}
+}
+export default new SelectPage();
+
+
+/// <reference types="cypress" />
+import SelectPage from "../support/page-object/selectPage";
+
+describe("SELECT ", () => {
+
+
+
+it("Wszystkie opcje po po kolei", () => {
+    cy.visit("/");
+
+    cy.get('[type="button"]').contains("Akceptuję").click();
+
+    cy.get('[href="/torebki-damskie"]').contains("TOREBKI").click();
+
+    SelectPage.selectAllOption();
+
+        // cy.get("#sort-header").then(znajdz => {
+        //     cy.wrap(znajdz).find("option").each(opcja => {
+        //         cy.wrap(znajdz).select(opcja.text())
+        //     })
+        // })  
+    })
+})
