@@ -1,0 +1,62 @@
+class AlertPage {
+    get alert() {
+        return cy.get("#alert");
+    }
+    get alert1() {
+        return cy.get("#alert-confirm");
+}
+    clickOnButtonAlert() {
+        this.alert.click();
+    }
+    clickOnButtonAlert1() {
+        this.alert1.click();
+    }
+
+    verifyAlertText(tekst) {
+        cy.on("window:alert", tresc => {
+            expect(tresc).to.equal(tekst);
+    })
+ }
+
+//     verifyAlertConfirmText() {
+//         cy.on("window:confirm", tresc => {
+//             expect(tresc).to.equal("Zaakceptuj aby kontynuować!")
+
+//         })
+// }
+
+//         rejectAlert() {
+//             cy.on("window:confirm", () => false)
+//         }
+    
+//         acceptAlert() {
+//             cy.on("window:confirm", () => true)
+//         }
+
+}
+export default new AlertPage();
+
+
+
+/// <reference types="cypress" />
+
+import AlertPage from "../support/page-object/alertPage";
+
+describe("Alerty-Klasy", () => {
+     it("Alerty-Klasy", () => {
+        cy.visit("https://testowanie-oprogramowania.pl/lekcje/alerty/");
+
+    AlertPage.clickOnButtonAlert();
+    AlertPage.verifyAlertText("Przykładowa treść alertu");
+ 
+    // it("Alerty-confirm", () => {
+    //     cy.visit("https://testowanie-oprogramowania.pl/lekcje/alerty/");
+
+    //     AlertPage.clickOnButtonAlert1();
+    //     AlertPage.verifyAlertConfirmText();
+    //     AlertPage.acceptAlert();
+
+   
+    // })
+})
+})
