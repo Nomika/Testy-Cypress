@@ -1,0 +1,41 @@
+import 'cypress-file-upload';
+
+
+Cypress.Commands.add("openRadioMors", () => {
+    cy.visit("https://ug.edu.pl/news/pl/5902/nabor-do-programu-profesorowie-wizytujacy-ug-iv-edycja");
+})
+
+Cypress.Commands.add("szukajFrazy", (text, delayValue) => {
+    cy.visit("https://www.google.pl/?hl=pl");
+
+   
+
+    cy.get("#APjFqb").type(text, {delay: delayValue});
+})
+
+
+
+
+/// <reference types="cypress" />
+
+describe("E2E-Custom Commands", () => {
+    it("Przykład zastosowania Custom Commands", () => {
+        cy.openRadioMors();
+        //cy.contains('[".wt-overlay__footer__action"]', 'Akceptuj').click();
+    })
+    it("Wpisywanie wartości w pole", () => {
+        cy.visit("https://www.google.pl/?hl=pl");
+        
+
+        //cy.szukajFrazy("Tekścior{backspace}", 1200);
+        cy.szukajFrazy("Magdalena Kucharska{backspace}", 1200);
+    })
+
+    it("Czyszczenie wartości z pola do wpisania", () => {
+        cy.get("#APjFqb").clear();
+
+    })
+      
+   
+})
+    
