@@ -1,0 +1,17 @@
+/// <reference types="cypress" />
+
+describe("Testy API", () => {
+   
+    // it("Niepoprawne logowanie", () => {
+    //     cy.visit("https://24.energa.pl/auth/realms/Energa-Selfcare/protocol/openid-connect/auth?client_id=energa-selfcare&redirect_uri=https%3A%2F%2F24.energa.pl%2Fss%2F%2F%23%2540%253F_afrWindowId%253Dnull%2526_afrLoop%253D58292288652959%2526_afrWindowMode%253D0%2526_adf.ctrl-state%253D1b6lu1pjd9_13&state=c3fb19a4-64d4-42bf-b95c-9b6862285add&response_mode=fragment&response_type=code&scope=openid&nonce=1833d95d-2683-4f25-8205-9d02441bbbab&code_challenge=DMgf-enV0pPER08b3JP_ctpN24mANUj4r-9WuRIxjrU&code_challenge_method=S256")
+
+    //     cy.login("monika@wp.pl", "3234@21")
+  
+    //     })
+        it("Niepoprawne logowanie", () => {
+            cy.visit("https://ebok.pgnig.pl/")
+    
+            cy.login("aniela@wp.pl", "tralalal34@")
+      
+            })
+    })
