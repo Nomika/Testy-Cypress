@@ -1,0 +1,14 @@
+/// <reference types="cypress" />
+
+describe("Testy API", () => {
+it("Poprawne logowanie", () => {
+                cy.visit("https://ebok.pgnig.pl/")
+                cy.login("1622@wp.pl", "PGNiG2020_!")
+                
+            }) })
+
+Cypress.Commands.add("login", (email, password) => {
+    cy.get(`[placeholder][name="identificator"]`).type(email);
+    cy.get(`[placeholder="Min. 8 znaków"]`).type(password);
+    cy.get(`[type="submit"]`).click();
+})
