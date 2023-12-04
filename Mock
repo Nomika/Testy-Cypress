@@ -1,0 +1,23 @@
+
+/// <reference types="cypress" />
+
+describe("Testy API", () => {
+
+    })
+            it("Poprawne logowanie1", () => {
+                cy.intercept("GET", "https://api.realworld.io/api/tags", { fixture: "tags.json"}).as("requestTag");
+                cy.visit("https://angular.realworld.io/")
+                cy.get('[class="nav-link"]').contains("Sign in").click()
+                cy.login("nomika1@op.pl", "Realworld1234$")
+                cy.wait("@requestTag")
+            })
+
+
+{
+    "tags": [
+        "welcome",
+        "Monika",
+        "Marta",
+        "Karol"
+    ]
+}
