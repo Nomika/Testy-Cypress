@@ -1,0 +1,32 @@
+/// <reference types="cypress" />
+
+describe("shadowDOM", () => {
+    it("shadowDOM-metoda", () => {
+        cy.visit("https://www.htmlelements.com/demos/menu/shadow-dom/index.htm");
+        cy.contains("File")
+		//cy.get(".smart-ui-component").shadow().contains("File").click()
+		cy.get(".smart-ui-component").shadow().contains("Edit").click()
+        
+    })
+})
+
+
+
+
+{
+    "baseUrl": "https://www.renee.pl",
+    "includeShadowDom": true,
+    "chromeWebSecurity": false,
+    "viewportHeight": 1080,
+    "viewportWidth": 1920,
+    "video": false,
+    "theme": "dark",
+    "env": {
+        "productionUrl": "https://www.google.com",
+        "devUrl": "https://testowanie-oprogramowania.pl"
+    },
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "reporter-config.json"
+      }
+    }
