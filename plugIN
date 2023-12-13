@@ -1,0 +1,78 @@
+/// <reference types="cypress" />
+
+
+/**
+ * @type {Cypress.PluginConfig}
+ */
+// eslint-disable-next-line no-unused-vars
+const { lighthouse, pa11y, prepareAudit } = require("cypress-audit");
+
+const fs = require('fs-extra')
+const path = require('path')
+
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve('cypress', 'konfiguracja', `${file}.json`)
+
+  return fs.readJson(pathToConfigFile)
+}
+
+module.exports = (on, config) => {
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions);
+  });
+
+  on("task", {
+    lighthouse: lighthouse(), // calling the function is important
+    pa11y: pa11y(), // calling the function is important
+  });
+
+  const file = config.env.configFile || 'development'
+
+  return getConfigurationByFile(file)
+};
+
+
+
+
+
+import 'cypress-file-upload';
+import "cypress-audit/commands";
+
+
+Cypress.Commands.add("openRadioMors", () => {
+    cy.visit("https://ug.edu.pl/news/pl/5902/nabor-do-programu-profesorowie-wizytujacy-ug-iv-edycja");
+})
+
+Cypress.Commands.add("szukajFrazy", (text, delayValue) => {
+    cy.visit("https://www.google.pl/?hl=pl");
+
+   
+
+    cy.get("#APjFqb").type(text, {delay: delayValue});
+})
+
+// Cypress.Commands.add("login", (email, password) => {
+//     cy.get(`[placeholder][name="identificator"]`).type(email);
+//     cy.get(`[placeholder="Min. 8 znaków"]`).type(password);
+//     cy.get(`[type="submit"]`).click();
+// })
+Cypress.Commands.add("login", (email, password) => {
+    cy.get('[placeholder="Email"]').type(email);
+    cy.get('[placeholder="Password"]').type(password);
+    cy.get('[type="submit"]').click();
+})
+
+
+
+describe("Lighthouse Tests", () => {
+	it("Pierwszy test Lighthouse", () => {
+		cy.visit("https://ug.edu.pl")
+		cy.lighthouse({
+			performance: 85,
+			accessibility: 100,
+			"best-practices": 85,
+			seo: 85,
+			pwa: 100,
+		  });
+	})
+})
