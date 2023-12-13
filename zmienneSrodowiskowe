@@ -1,0 +1,29 @@
+/// <reference types="cypress" />
+
+describe("E2E- ZmienneSrodowiskowe", () => {
+    it("zmienneSrodowiskowe", () => {
+        cy.visit(Cypress.env("url"))
+        //cy.contains('[".wt-overlay__footer__action"]', 'Akceptuj').click();
+        
+		})
+})
+
+
+
+{
+    "baseUrl": "https://www.renee.pl",
+    "includeShadowDom": true,
+    "chromeWebSecurity": false,
+    "viewportHeight": 1080,
+    "viewportWidth": 1920,
+    "video": false,
+    "theme": "dark",
+    "env": {
+        "productionUrl": "https://www.google.com",
+        "devUrl": "https://testowanie-oprogramowania.pl"
+    },
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "reporter-config.json"
+      }
+    }
