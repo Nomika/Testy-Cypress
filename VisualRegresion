@@ -1,0 +1,23 @@
+/// <reference types="cypress" />
+
+describe("Regresja wizualna", () => {
+    it("Wczytywanie się elementu", () => {
+        cy.visit("https://picsum.photos/");
+		// cy.get('header.content-section-light').then(image=> {
+		// 	cy.wrap(image).toMatchImageSnapshot();
+		// })       
+		cy.document().toMatchImageSnapshot();
+	})
+})
+
+
+ "ignoreTestFiles": [
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
+  ],
+
+
+ initPlugin(on, config);
+  return config;
+
+const { initPlugin } = require('cypress-plugin-snapshots/plugin');
